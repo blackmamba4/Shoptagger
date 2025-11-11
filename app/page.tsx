@@ -43,6 +43,25 @@ const heroRules = [
   { condition: "IF Email contains “.edu”", tag: "Student" }
 ];
 
+const heroHighlights = [
+  {
+    icon: Sparkles,
+    title: "Point-and-ship automation",
+    copy: "Use ready-made rules instead of building flows from scratch."
+  },
+  {
+    icon: Shield,
+    title: "Data your tools trust",
+    copy: "Tags sync instantly to Klaviyo, Gorgias, Loop, and Flow."
+  }
+];
+
+const heroChips = [
+  "No Flow learning curve",
+  "Works with existing fulfilment stacks",
+  "Onboarded by Shopify experts"
+];
+
 const valueHighlights = [
   {
     title: "Manual tagging drains time",
@@ -344,12 +363,37 @@ export default function HomePage() {
               </span>
             </div>
             <h1 className="text-4xl font-semibold tracking-tight text-white sm:text-5xl lg:text-[56px] lg:leading-tight">
-              Automatic Shopify tags you can understand at a glance.
+              Shopify tagging that makes sense at a glance.
             </h1>
-            <p className="max-w-xl text-lg text-slate-300">
-              Install once, choose a plain-language rule, and ShopTagger keeps every Shopify order and customer organised.
-              No Flow complexity, no manual double checks—just clean data running quietly for every vertical.
-            </p>
+            <div className="grid gap-3 text-sm text-slate-200 sm:grid-cols-2">
+              {heroHighlights.map((item) => {
+                const Icon = item.icon;
+                return (
+                  <div
+                    key={item.title}
+                    className="rounded-3xl border border-slate-800/70 bg-slate-950/70 p-4 shadow-surface-soft sm:p-5"
+                  >
+                    <div className="flex items-center gap-2 text-brand-100">
+                      <Icon className="h-4 w-4" />
+                      <span className="text-xs uppercase tracking-wide">
+                        {item.title}
+                      </span>
+                    </div>
+                    <p className="mt-2 text-sm text-slate-300">{item.copy}</p>
+                  </div>
+                );
+              })}
+            </div>
+            <div className="flex flex-wrap gap-2 text-xs font-semibold uppercase tracking-wide text-slate-400">
+              {heroChips.map((chip) => (
+                <span
+                  key={chip}
+                  className="rounded-full border border-slate-800/80 bg-slate-900/70 px-3 py-1"
+                >
+                  {chip}
+                </span>
+              ))}
+            </div>
             <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
               <Button className="w-full sm:w-auto" size="lg" asChild>
                 <a href="#waitlist">
@@ -517,6 +561,9 @@ export default function HomePage() {
                   </div>
                 ) : (
                   <>
+                    <p className="text-sm text-slate-300">
+                      Share your email (and Shopify store if you want priority setup). We’ll reply with the install link and ready-to-toggle rule templates.
+                    </p>
                     <form
                       onSubmit={handleWaitlistSubmit}
                       method="POST"
