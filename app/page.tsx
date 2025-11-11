@@ -15,7 +15,6 @@ import {
   ShoppingBag,
   Sparkles,
   Store,
-  Tags,
   Truck
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
@@ -299,8 +298,12 @@ export default function HomePage() {
     <main className="relative">
       <header className="mx-auto flex w-full max-w-6xl items-center justify-between px-6 pb-10 pt-8 md:px-10">
         <div className="flex items-center gap-3">
-          <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-brand-500/20 text-brand-100 shadow-glow-brand">
-            <Tags className="h-5 w-5" />
+          <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-slate-900/80 shadow-glow-brand">
+            <img
+              src="/favicon.ico"
+              alt="ShopTagger icon"
+              className="h-7 w-7"
+            />
           </div>
           <div>
             <span className="text-lg font-semibold text-white">ShopTagger</span>
@@ -648,7 +651,7 @@ export default function HomePage() {
               variants={fadeIn}
               custom={index / 8}
             >
-              <Card className="h-full border-slate-800/70 bg-slate-900/50 transition-all duration-300 group-hover:-translate-y-2 group-hover:scale-[1.01] group-hover:border-brand-500/40 group-hover:shadow-glow-brand/70">
+              <Card className="h-full border-slate-800/70 bg-slate-900/50 transition-transform duration-500 group-hover:-translate-y-5 group-hover:scale-[1.05] group-hover:border-brand-500/60 group-hover:shadow-glow-brand/90">
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2 text-xl text-white">
                     <Sparkles className="h-4 w-4 text-brand-300" />
@@ -701,7 +704,7 @@ export default function HomePage() {
                 custom={index / 8}
                 className="h-full"
               >
-                <Card className="flex h-full flex-col border-slate-800/70 bg-slate-900/55 transition-all duration-300 hover:-translate-y-2 hover:scale-[1.01] hover:border-brand-500/45 hover:shadow-glow-brand/60">
+                <Card className="flex h-full flex-col border-slate-800/70 bg-slate-900/55 transition-transform duration-500 hover:-translate-y-5 hover:scale-[1.05] hover:border-brand-500/60 hover:shadow-glow-brand/90">
                   <CardHeader className="space-y-3">
                     <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-brand-500/15 text-brand-200">
                       <Icon className="h-5 w-5" />
@@ -761,7 +764,7 @@ export default function HomePage() {
           <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {popularRules.map((rule, index) => (
               <motion.div key={rule.title} variants={fadeIn} custom={index / 10}>
-              <Card className="flex h-full flex-col border-slate-800/70 bg-slate-900/55 px-5 py-6 transition-all duration-300 hover:-translate-y-2 hover:scale-[1.01] hover:border-brand-500/45 hover:shadow-glow-brand/60">
+              <Card className="flex h-full flex-col border-slate-800/70 bg-slate-900/55 px-5 py-6 transition-transform duration-500 hover:-translate-y-5 hover:scale-[1.05] hover:border-brand-500/60 hover:shadow-glow-brand/90">
                   <div className="space-y-2.5">
                     <CardTitle className="text-lg text-white">{rule.title}</CardTitle>
                     <CardDescription className="text-sm text-slate-300">
