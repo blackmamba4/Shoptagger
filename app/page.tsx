@@ -353,15 +353,7 @@ export default function HomePage() {
             variants={fadeIn}
             className="flex flex-col gap-8"
           >
-            <div className="flex items-center gap-3">
-              <Badge variant="default" className="flex items-center gap-2 text-sm">
-                <Store className="h-3.5 w-3.5" />
-                Shopify app · Simple rule-based tagging
-              </Badge>
-              <span className="hidden text-sm text-slate-400 md:inline">
-                Install from Shopify App Store soon — no Flow setup needed
-              </span>
-            </div>
+            
             <h1 className="text-4xl font-semibold tracking-tight text-white sm:text-5xl lg:text-[56px] lg:leading-tight">
               Shopify tagging that makes sense at a glance.
             </h1>
