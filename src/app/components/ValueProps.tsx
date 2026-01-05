@@ -19,7 +19,13 @@ const features = [
   }
 ];
 
-export function ValueProps() {
+type ValuePropsProps = {
+  variant?: 'dark' | 'light';
+};
+
+export function ValueProps({ variant = 'dark' }: ValuePropsProps) {
+  const isLight = variant === 'light';
+
   return (
     <section className="py-24 relative z-10 overflow-hidden">
       {/* Abstract Background */}
@@ -29,7 +35,11 @@ export function ValueProps() {
           alt=""
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-zinc-950 via-zinc-950/50 to-zinc-950" />
+        <div
+          className={`absolute inset-0 bg-gradient-to-b ${
+            isLight ? 'from-white via-white/70 to-white' : 'from-zinc-950 via-zinc-950/50 to-zinc-950'
+          }`}
+        />
       </div>
 
       <div className="container mx-auto px-6 md:px-12 relative z-10">
@@ -40,8 +50,10 @@ export function ValueProps() {
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Why LowkeyLab?</h2>
-          <p className="text-zinc-400 max-w-2xl mx-auto">
+          <h2 className={`text-3xl md:text-4xl font-bold mb-4 ${isLight ? 'text-zinc-900' : 'text-white'}`}>
+            Why LowkeyLab?
+          </h2>
+          <p className={`max-w-2xl mx-auto ${isLight ? 'text-zinc-600' : 'text-zinc-400'}`}>
             Don't just guess. Let this tool help you figure out chords to any song instantly.
           </p>
         </motion.div>
@@ -54,13 +66,19 @@ export function ValueProps() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="p-8 rounded-2xl bg-zinc-900/80 backdrop-blur-sm border border-zinc-800 hover:bg-zinc-800/80 transition-all hover:-translate-y-1 hover:shadow-xl hover:shadow-indigo-500/10"
+              className={`p-8 rounded-2xl backdrop-blur-sm border transition-all hover:-translate-y-1 ${
+                isLight
+                  ? 'bg-white border-zinc-200 hover:shadow-xl hover:shadow-indigo-100/40'
+                  : 'bg-zinc-900/80 border-zinc-800 hover:bg-zinc-800/80 hover:shadow-xl hover:shadow-indigo-500/10'
+              }`}
             >
               <div className="w-12 h-12 rounded-lg bg-indigo-500/10 flex items-center justify-center mb-6">
-                <feature.icon className="w-6 h-6 text-indigo-400" />
+                <feature.icon className={`w-6 h-6 ${isLight ? 'text-indigo-600' : 'text-indigo-400'}`} />
               </div>
-              <h3 className="text-xl font-semibold text-white mb-3">{feature.title}</h3>
-              <p className="text-zinc-400 leading-relaxed">
+              <h3 className={`text-xl font-semibold mb-3 ${isLight ? 'text-zinc-900' : 'text-white'}`}>
+                {feature.title}
+              </h3>
+              <p className={`leading-relaxed ${isLight ? 'text-zinc-600' : 'text-zinc-400'}`}>
                 {feature.description}
               </p>
             </motion.div>

@@ -16,4 +16,15 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src'),
     },
   },
+  server: {
+    proxy: {
+      // Dev-only proxy to avoid Loops CORS when running locally
+      '/api/loops-newsletter': {
+        target: 'https://app.loops.so',
+        changeOrigin: true,
+        secure: true,
+        rewrite: (p) => p.replace(/^\/api\/loops-newsletter/, '/api/newsletter-form'),
+      },
+    },
+  },
 })
